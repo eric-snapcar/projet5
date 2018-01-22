@@ -19,9 +19,11 @@ def predict(train_x, train_y, test_x, test_y ):
     rfc = RandomForestClassifier(n_estimators=500)
     model = rfc.fit(train_x, train_y)
     return rfc.predict(test_x)
+def rate(test_y,pred ):
+    print accuracy_score(test_y, pred)
 # Les deux dernières colonnes sont subject et Activity
 # Les autres colonnes sont celle où il y a des données intéressantes
 
 train_x, train_y, test_x, test_y = loadData_()
 pred = predict(train_x, train_y, test_x, test_y)
-print accuracy_score(test_y, pred)
+rate(test_y, pred)
