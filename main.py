@@ -37,7 +37,7 @@ def predict(train_x, train_y, test_x ):
 train_x, train_y, test_x, test_y = loadData_()
 pred, model = predict(train_x, train_y, test_x)
 print("Unfiltered accuracy")
-rate(test_y, pred)
+rate(test_y, pred) 
 
 train_x_filtered,test_x_filtered = filter(train_x, test_x, model )
 pred_filtered = predict(train_x_filtered, train_y, test_x_filtered)[0]
