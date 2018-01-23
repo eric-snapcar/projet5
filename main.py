@@ -26,7 +26,7 @@ def filter(train_x, test_x, model ):
 def rate(test_y,pred ):
     print accuracy_score(test_y, pred)
 
-def predict(train_x, train_y, test_x ):
+def predict(train_x, test_x, train_y):
     rfc = RandomForestClassifier(n_estimators=500)
     model = rfc.fit(train_x, train_y)
     return rfc.predict(test_x), model
@@ -35,11 +35,11 @@ def predict(train_x, train_y, test_x ):
 # Les autres colonnes sont celle où il y a des données intéressantes
 
 train_x, train_y, test_x, test_y = loadData_()
-pred, model = predict(train_x, train_y, test_x)
+pred, model = predict(train_x, test_x, train_y)
 print("Unfiltered accuracy")
-rate(test_y, pred) 
+rate(test_y, pred)
 
 train_x_filtered,test_x_filtered = filter(train_x, test_x, model )
-pred_filtered = predict(train_x_filtered, train_y, test_x_filtered)[0]
+pred_filtered = predict(train_x_filtered, test_x_filtered, train_y )[0]
 print("Filtered accuracy")
 rate(test_y, pred_filtered)
